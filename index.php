@@ -15,7 +15,16 @@
       <h2>Tienda de videojuegos</h2>
     </section>
 
+    <section class="opciones-admin">
+        <div class="espacio-busqueda">
+            <input class="busqueda" name="busqueda" type="text" placeholder="Buscar por título...">
+            <button class="botones boton-busqueda">Buscar</button>
+        </div>
+        <button class="botones boton-admin">Administrador</button>
+    </section>
+
     <h3>Videojuegos disponibles:</h3>
+
 
     <section>
         <div class="container">
@@ -27,7 +36,6 @@
 
                     $consulta = 'SELECT * FROM videojuegos';
                     $datos = mysqli_query($conexion, $consulta);
-
 
                     while ($reg = mysqli_fetch_array($datos)) {?>
                         <div class="diseño-card card col-sm-12 col-md-5 col-lg-3">
