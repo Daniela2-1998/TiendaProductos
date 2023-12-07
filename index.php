@@ -25,9 +25,7 @@
 
         <a href="login.html">
         <button class="botones boton-admin">
-        
           Administrador
-          
         </button>
         </a>
 
