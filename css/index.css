@@ -8,18 +8,72 @@
 .titulo{
     background-color: rgb(57, 57, 57);
     padding: 2%;
-    margin-bottom: 5%;
 }
 
 h1, h2{
-    color: rgb(43, 110, 226);
     text-align: center;  
+}
+
+h1{
+    color: rgb(43, 110, 226);
+}
+
+h2{
+    color: #fff;
 }
 
 h3{
     color: rgb(43, 110, 226);
     margin-left: 6%;
 }
+
+.opciones-admin{
+    height: 100px;
+    width: 100%;
+    background-color: rgb(43, 110, 226);
+    box-shadow: rgba(0, 0, 0, 0.407) 0px 5px 15px;
+    color: #fff;
+    margin-bottom: 5%;
+    padding: 2%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.espacio-busqueda{
+    height: 60px;
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.busqueda{
+    height: 50px;
+    width: 300px;
+    border: none;
+    border-radius: 10px;
+    color: rgb(43, 110, 226);
+    margin-bottom: 5%;
+    padding: 1%;
+}
+
+.botones{
+    height: 50px;
+    background-color: rgb(57, 57, 57);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+}
+
+.boton-busqueda{
+    width: 100px;
+}
+
+.boton-admin{
+    width: 200px;
+    padding: 1%;
+}
+
+
 
 .espaciado{
     display: flex;
