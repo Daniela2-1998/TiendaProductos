@@ -1,0 +1,15 @@
+.contenedor-botones{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.botones-edicion{
+    border: none;
+    background-color: transparent;
+}
+
+.imagen-edicion{
+    width: 50px;
+    height: 50px;
+}
