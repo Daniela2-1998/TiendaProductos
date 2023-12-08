@@ -7,8 +7,22 @@ else {
   header ("location:login.html" );
 }
 
- ?>
+function eliminar($id){
+  $conexion = mysqli_connect("127.0.0.1", "root", "");
+  mysqli_select_db($conexion, "tienda");
+  $eliminar_registro = "DELETE * FROM videojuegos WHERE id=$id";
+  mysqli_query($conexion, $eliminar_registro);
+  header("Registro eliminado");
+  echo "Campo eliminado";
+}
 
+function buscarPorId($id){
+  $conexion = mysqli_connect("127.0.0.1", "root", "");
+  mysqli_select_db($conexion, "tienda");
+  $buscarPorId = "SELECT * FROM videojuegos WHERE id=$id";
+  mysqli_query($conexion, $buscarPorId);
+}
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,12 +47,13 @@ else {
     <section class="opciones-admin">
         <form class="espacio-busqueda" action="buscar.php" method="post">
             <input class="busqueda" name="busqueda" type="text" placeholder="Buscar por ID...">
-            <button class="botones boton-busqueda" onclick="buscar()">Buscar</button>
+            <button class="botones boton-busqueda" onclick="buscarPorId()">Buscar</button>
         </form>
-        <button class="botones boton-admin">
-          <a href="login.php"></a>
-          Administrador
-        </button>
+        <a href="agregar.html">
+            <button class="botones boton-admin">
+             Agregar 
+            </button>
+        </a>
     </section>
 
     <h3>Videojuegos disponibles:</h3>
@@ -49,6 +64,8 @@ else {
         <div class="container">
             <div class="row espaciado">
                 <?php
+
+      
                     // 1) Conexion
                     $conexion = mysqli_connect("127.0.0.1", "root", "");
                     mysqli_select_db($conexion, "tienda");
@@ -69,6 +86,8 @@ else {
                         </div>
                         </div>
 
+                        <?php $id = $reg['id'];?>
+
 
                         <a href="ver.php?id=<?php echo $reg['id']; ?>" class="card-body">
                             <h3 class="nombre" style="width: 100%; font-size:25px;">
@@ -77,7 +96,8 @@ else {
                             <p><?php echo $reg['consola']; ?></p>
                             <p>$<?php echo $reg['precio']; ?></p>
                             <p>En stock:<?php echo $reg['stock']; ?></p>
-                            <div class="contenedor-botones">
+                              <p class="id-icono"><?php echo $id; ?></p>
+                            <div class="contenedor-botones">  
                               <button class="botones-edicion">
                                 <img class="imagen-edicion" src="img/pen.png" alt="">
                               </button>
