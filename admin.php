@@ -6,22 +6,6 @@ if (isset($_SESSION['usuario'])) {
 else {
   header ("location:login.html" );
 }
-
-function eliminar($id){
-  $conexion = mysqli_connect("127.0.0.1", "root", "");
-  mysqli_select_db($conexion, "tienda");
-  $eliminar_registro = "DELETE * FROM videojuegos WHERE id=$id";
-  mysqli_query($conexion, $eliminar_registro);
-  header("Registro eliminado");
-  echo "Campo eliminado";
-}
-
-function buscarPorId($id){
-  $conexion = mysqli_connect("127.0.0.1", "root", "");
-  mysqli_select_db($conexion, "tienda");
-  $buscarPorId = "SELECT * FROM videojuegos WHERE id=$id";
-  mysqli_query($conexion, $buscarPorId);
-}
  ?>
 
 <!DOCTYPE html>
@@ -98,12 +82,12 @@ function buscarPorId($id){
                             <p>En stock:<?php echo $reg['stock']; ?></p>
                               <p class="id-icono"><?php echo $id; ?></p>
                             <div class="contenedor-botones">  
-                              <button class="botones-edicion">
+                              <a class="botones-edicion" href="modificar.php?id=<?php echo $reg['id'];?>">
                                 <img class="imagen-edicion" src="img/pen.png" alt="">
-                              </button>
-                              <button class="botones-edicion">
+                              </a>
+                              <a class="botones-edicion" href="borrar.php?id=<?php echo $reg['id'];?>">
                                 <img class="imagen-edicion" src="img/bin.png" alt="">
-                              </button>
+                              </a>
                             </div>
                        </a>
                     </div>
@@ -114,10 +98,6 @@ function buscarPorId($id){
         </div>
     </section>
 
-
-<a href="cerrarsesion.php">
-  <button class="botones boton-busqueda">Cerrar sesion</button>
-</a>
 
   <!-- JavaScript del bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
