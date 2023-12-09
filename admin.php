@@ -57,6 +57,13 @@ else {
                     $consulta = 'SELECT * FROM videojuegos';
                     $datos = mysqli_query($conexion, $consulta);
 
+                    $id = $reg['id'];
+                    $nombre = $_POST['nombre'];
+                    $consola = $_POST['consola'];
+                    $precio = $_POST['precio'];
+                    $stock = $_POST['stock'];
+                    $imagen = $_POST['imagen'];
+
                     while ($reg = mysqli_fetch_array($datos)) {?>
                         <div class="diseño-card card col-sm-12 col-md-5 col-lg-3">
                         <div class= "">
@@ -69,24 +76,22 @@ else {
                           </div>
                         </div>
                         </div>
+                   
 
-                        <?php $id = $reg['id'];?>
-
-
-                        <a href="ver.php?id=<?php echo $reg['id']; ?>" class="card-body">
+                        <a class="card-body">
                             <h3 class="nombre" style="width: 100%; font-size:25px;">
                             <?php echo ucwords($reg['nombre']) ?>
                             </h3>
                             <p><?php echo $reg['consola']; ?></p>
                             <p>$<?php echo $reg['precio']; ?></p>
-                            <p>En stock:<?php echo $reg['stock']; ?></p>
+                            <p>En stock: <?php echo $reg['stock']; ?></p>
                               <p class="id-icono"><?php echo $id; ?></p>
-                            <div class="contenedor-botones">  
+                            <div class="contenedor-iconos">  
                               <a class="botones-edicion" href="modificar.php?id=<?php echo $reg['id'];?>">
-                                <img class="imagen-edicion" src="img/pen.png" alt="">
+                                <img class="imagen-edicion" src="img/pen.png" alt="Icono modificar">
                               </a>
                               <a class="botones-edicion" href="borrar.php?id=<?php echo $reg['id'];?>">
-                                <img class="imagen-edicion" src="img/bin.png" alt="">
+                                <img class="imagen-edicion" src="img/bin.png" alt="Icono borrar">
                               </a>
                             </div>
                        </a>

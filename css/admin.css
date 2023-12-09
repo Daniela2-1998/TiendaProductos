@@ -1,5 +1,18 @@
-.contenedor-botones{
+.id-icono{
+    width: 20%;
+    height: 50px;
+    background-color: #fff;
+    color: rgb(43, 110, 226) !important;
+    border: none;
+    border-radius: 100px;
+    padding: 5%;
+    font-weight: bolder;
+    margin-left: 42%;
+}
+
+.contenedor-iconos{
     width: 100%;
+    height: 80px;
     display: flex;
     justify-content: space-around;
 }
@@ -7,6 +20,7 @@
 .botones-edicion{
     border: none;
     background-color: transparent;
+    margin-right: 22% !important;
 }
 
 .imagen-edicion{
